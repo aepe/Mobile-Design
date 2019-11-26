@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "declaration": true,
+    "noEmit": true,
+    "strict": true,
+    "experimentalDecorators": true
+  },
+  "include": ["src"]
+}

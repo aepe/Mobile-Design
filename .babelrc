@@ -1,0 +1,14 @@
+{
+  "presets": ["@babel/env", "@babel/preset-typescript"],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@vue/babel-plugin-transform-vue-jsx",
+    "@babel/proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread"
+  ]
+}

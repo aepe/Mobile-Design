@@ -1,0 +1,10 @@
+node_modules
+dist
+
+.prettierignore
+.prettierrc
+.DS_Store
+*/.DS_Store
+/vuepress/
+.vscode
+yarn-error.log

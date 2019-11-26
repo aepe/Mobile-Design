@@ -1,0 +1,42 @@
+{
+  "name": "mobile-design",
+  "version": "0.0.1",
+  "description": "vue 移动端ui框架",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rollup --config ./build/rollup.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zx-js/Mobile-Design.git"
+  },
+  "keywords": [
+    "vue",
+    "mobile",
+    "bhabgs"
+  ],
+  "author": "bhabgs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zx-js/Mobile-Design/issues"
+  },
+  "homepage": "https://github.com/zx-js/Mobile-Design#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-decorators": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
+    "@vue/babel-plugin-transform-vue-jsx": "^1.1.2",
+    "rollup": "^1.27.5",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.2",
+    "typescript": "^3.7.2",
+    "vue": "^2.6.10",
+    "vue-property-decorator": "^8.3.0",
+    "vuepress": "^1.2.0"
+  }
+}
