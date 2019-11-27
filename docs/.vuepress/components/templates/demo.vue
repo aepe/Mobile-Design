@@ -4,7 +4,7 @@
  * @Author: 王晓龙
  * @Date: 2019-11-13 13:47:19
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-26 16:47:42
+ * @LastEditTime: 2019-11-27 16:12:57
  -->
 <template>
   <div class="demo-template">
@@ -51,6 +51,7 @@ export default {
   border-radius: 5px;
   overflow: hidden;
   margin-top: 20px;
+  background: #fff;
 
   .view-example {
     padding: 20px 40px;

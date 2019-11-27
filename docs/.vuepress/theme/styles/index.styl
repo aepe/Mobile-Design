@@ -1,0 +1,95 @@
+@import './markdown'
+body, html{
+    margin: 0;
+    padding: 0;
+    background: #f0f3f6;
+}
+a{
+    text-decoration: none;
+}
+#app{
+}
+#bhabgs-header{
+    background: #001938;
+    height: 60px;
+    padding:0 1rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    a.bhabgs-title{
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+    }
+    .bhabgs-seach{
+        margin-left: 3.5rem;
+        input{
+            background: none;
+            outline: none;
+            border-color: rgba(0,0,0,0);
+            color: #fff;
+            transition: all .3s;
+            height: 30px;
+            font-size: 14px;
+            line-height: 45px;
+            &:focus{
+                border-bottom-color: #fff;
+            }
+        }
+    }
+    .bhabgs-nav{
+        display: flex;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        li{
+            list-style none;
+            margin-left: 1rem;
+            cursor: pointer;
+            transition: all .3s;
+            opacity: .8;
+            &:hover, &.active{
+                opacity: 1;
+            }
+        }
+    }
+}
+#bhabgs-body{
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+#bhabgs-sider{
+    width: 220px;
+    background: #fff;
+    .title, li{
+        display: block;
+        margin: 0;
+        padding: 10px 0 10px 30px;
+        color: #455a64;
+        font-size: 16px;
+        line-height: 24px;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    ul{
+        padding-left: 1rem;
+        margin-top: .5rem;
+    }
+    li{
+        list-style: none;
+        cursor pointer;
+        padding: .5rem 2rem;
+        &:hover, &.active{
+            color: #000;
+        }
+    }
+}
+
+#bhabgs-content{
+    flex: 1;
+    overflow-y: auto; 
+    padding-left: 1.3rem; 
+}
+
+/*markdown*/

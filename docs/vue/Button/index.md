@@ -4,12 +4,16 @@
  * @Author: bhabgs
  * @Date: 2019-11-26 16:53:25
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-26 16:53:33
+ * @LastEditTime: 2019-11-27 15:47:05
  -->
 
 # button 组件
 
-> 应用 vue 组件开发方式进行开发
+::: tip Mobile-Design
+
+1.  Mobile
+
+:::
 
 ## demo
 
