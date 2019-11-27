@@ -4,7 +4,7 @@
  * @Author: bhabgs
  * @Date: 2019-11-26 12:22:37
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-26 16:18:40
+ * @LastEditTime: 2019-11-26 16:33:41
  */
 import typescript from "rollup-plugin-typescript2";
 import babel from "rollup-plugin-babel";
@@ -14,7 +14,7 @@ const extensions = [".ts", ".js", ".tsx"];
 export default {
   input: resolve("./") + "/src/index.ts",
   output: {
-    file: resolve("./") + "/dist/bundle.js",
+    file: resolve("./") + "/dist/js/zx-mobile-ui.js",
     format: "es"
   },
   plugins: [

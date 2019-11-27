@@ -4,13 +4,14 @@
  * @Author: bhabgs
  * @Date: 2019-11-26 12:15:44
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-26 15:49:45
+ * @LastEditTime: 2019-11-27 09:16:46
  */
-import button from "./compontent/button";
-interface A {
-  name: string;
-}
-const a: A = {
-  name: "哈哈哈"
+import compontents from "./compontent";
+import { VueConstructor } from "vue";
+const install = (Vue: VueConstructor) => {
+  // 组件
+  compontents.forEach(component =>
+    Vue.component(component.name, component.install)
+  );
 };
-export default { a, button };
+export default { install };

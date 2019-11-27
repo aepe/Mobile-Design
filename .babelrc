@@ -7,7 +7,8 @@
         "legacy": true
       }
     ],
-    "@vue/babel-plugin-transform-vue-jsx",
+    "transform-vue-jsx",
+    // "@vue/babel-plugin-transform-vue-jsx",
     "@babel/proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread"
   ]

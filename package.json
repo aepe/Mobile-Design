@@ -4,7 +4,10 @@
   "description": "vue 移动端ui框架",
   "main": "index.js",
   "scripts": {
-    "dev": "rollup --config ./build/rollup.js"
+    "ui:dev": "cross-env NODE_ENV=develop rollup --config build/rollup.js --watch",
+    "ui:build": "rollup --config ./build/rollup.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:buiuld": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -29,6 +32,9 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-typescript": "^7.7.4",
     "@vue/babel-plugin-transform-vue-jsx": "^1.1.2",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "cross-env": "^6.0.3",
     "rollup": "^1.27.5",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-json": "^4.0.0",
