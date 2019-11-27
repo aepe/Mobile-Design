@@ -4,13 +4,13 @@
  * @Author: bhabgs
  * @Date: 2019-11-06 16:39:45
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-27 09:25:35
+ * @LastEditTime: 2019-11-27 09:35:14
  */
 const themeConfig = require("./config/themeConfig").themeConfig;
 module.exports = {
   title: "zx-mobile-ui",
   port: 9992,
-  base: "/zx-mobile-ui-docs/",
+  base: "/Mobile-Design-Docs/",
   markdown: {
     lineNumbers: true,
     plugins: [

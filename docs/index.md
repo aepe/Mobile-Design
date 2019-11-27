@@ -4,7 +4,7 @@
  * @Author: bhabgs
  * @Date: 2019-11-26 16:23:56
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-26 16:46:08
+ * @LastEditTime: 2019-11-27 09:58:30
  -->
 
 # Mobile-Design
@@ -14,4 +14,3 @@
 1.  Mobile
 
 :::
-<ZButton/>

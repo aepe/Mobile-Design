@@ -7,7 +7,9 @@
     "ui:dev": "cross-env NODE_ENV=develop rollup --config build/rollup.js --watch",
     "ui:build": "rollup --config ./build/rollup.js",
     "docs:dev": "vuepress dev docs",
-    "docs:buiuld": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "deploy": "bash deploy.sh",
+    "deploy:send": "cross-env"
   },
   "repository": {
     "type": "git",
