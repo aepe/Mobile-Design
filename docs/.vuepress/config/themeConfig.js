@@ -4,7 +4,7 @@
  * @Author: bhabgs
  * @Date: 2019-11-07 09:48:14
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-27 15:09:51
+ * @LastEditTime: 2019-12-04 13:30:56
  */
 const themeConfig = {
   nav: [
@@ -22,7 +22,9 @@ const themeConfig = {
   sidebar: {
     "/vue/": [
       ["", "vue 组件介绍"],
-      ["Button/", "Button"]
+      ["Button/", "Button 按钮"],
+      ["NavigationBar/", "NavigationBar 导航栏"],
+      ["Call/", "Call 单元格"]
     ]
   },
   sidebarDepth: 2
