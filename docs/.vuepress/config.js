@@ -4,7 +4,7 @@
  * @Author: bhabgs
  * @Date: 2019-11-06 16:39:45
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-27 15:09:03
+ * @LastEditTime: 2019-12-03 13:50:33
  */
 const themeConfig = require("./config/themeConfig").themeConfig;
 module.exports = {
@@ -42,5 +42,8 @@ module.exports = {
         };
         return options;
       });
+  },
+  less: {
+    javascriptEnabled: true
   }
 };

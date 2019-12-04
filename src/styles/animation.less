@@ -1,0 +1,127 @@
+@keyframes z-slide-up-enter {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes z-slide-up-leave {
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes z-slide-down-enter {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes z-slide-down-leave {
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes z-slide-left-enter {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes z-slide-left-leave {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes z-slide-right-enter {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes z-slide-right-leave {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes z-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes z-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes z-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.z-fade {
+  &-enter-active {
+    animation: @animation-duration-base z-fade-in;
+  }
+
+  &-leave-active {
+    animation: @animation-duration-base z-fade-out;
+  }
+}
+
+.z-slide-up {
+  &-enter-active {
+    animation: z-slide-up-enter @animation-duration-base both ease;
+  }
+
+  &-leave-active {
+    animation: z-slide-up-leave @animation-duration-base both ease;
+  }
+}
+
+.z-slide-down {
+  &-enter-active {
+    animation: z-slide-down-enter @animation-duration-base both ease;
+  }
+
+  &-leave-active {
+    animation: z-slide-down-leave @animation-duration-base both ease;
+  }
+}
+
+.z-slide-left {
+  &-enter-active {
+    animation: z-slide-left-enter @animation-duration-base both ease;
+  }
+
+  &-leave-active {
+    animation: z-slide-left-leave @animation-duration-base both ease;
+  }
+}
+
+.z-slide-right {
+  &-enter-active {
+    animation: z-slide-right-enter @animation-duration-base both ease;
+  }
+
+  &-leave-active {
+    animation: z-slide-right-leave @animation-duration-base both ease;
+  }
+}

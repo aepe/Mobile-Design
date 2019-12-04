@@ -4,14 +4,14 @@
  * @Author: bhabgs
  * @Date: 2019-11-26 16:39:42
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-26 16:41:01
+ * @LastEditTime: 2019-12-03 15:52:29
  */
 import Button from "./button";
 
-const ZButton = {
+const ZMbutton = {
   version: "0.0.1",
-  name: "ZButton",
+  name: "ZMbutton",
   install: Button
 };
 
-export default ZButton;
+export default ZMbutton;

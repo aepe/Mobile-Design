@@ -1,15 +1,29 @@
 {
   "name": "vuepress-theme-bhabgs",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "bhabgs theme for VuePress",
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git"
+  "scripts": {
+    "deploy:send": "cross-env"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zx-js/vuepress-theme-bhabgs.git"
+  },
+  "keywords": [
+    "bhabgs",
+    "vuepress",
+    "vue",
+    "theme",
+    "docs"
+  ],
   "author": "bhabgs",
+  "bugs": {
+    "url": "https://github.com/zx-js/vuepress-theme-bhabgs/issues"
+  },
+  "homepage": "https://github.com/zx-js/vuepress-theme-bhabgs",
   "maintainers": [
     {
       "name": "bhabgs",
@@ -18,6 +32,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "cross-env": "^6.0.3",
     "@vuepress/plugin-active-header-links": "^1.2.0",
     "@vuepress/plugin-nprogress": "^1.2.0",
     "@vuepress/plugin-search": "^1.2.0",
@@ -26,6 +41,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vuepress-plugin-container": "^2.0.2",
-    "vuepress-plugin-smooth-scroll": "^0.0.3"
+    "vuepress-plugin-smooth-scroll": "^0.0.3",
+    "dingtalk-robot-sender": "^1.2.0"
   }
 }

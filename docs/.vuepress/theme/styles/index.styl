@@ -1,95 +1,198 @@
-@import './markdown'
-body, html{
-    margin: 0;
-    padding: 0;
-    background: #f0f3f6;
+@import "./const.styl";
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
-#app{
-}
-#bhabgs-header{
-    background: #001938;
-    height: 60px;
-    padding:0 1rem;
+#bhabgs-header {
+  background: $gradient-blue ;
+  height: 60px;
+  padding: 0 1rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  a.bhabgs-title {
+    font-size: 18px;
+    font-weight: bold;
     color: #fff;
+  }
+  .bhabgs-seach {
+    margin-left: 3.5rem;
+    input {
+      outline: none;
+      border-color: rgba(0, 0, 0, 0);
+      transition: all 0.3s;
+      height: 30px;
+      font-size: 14px;
+      line-height: 45px;
+    }
+  }
+  .bhabgs-nav {
     display: flex;
-    align-items: center;
-    a.bhabgs-title{
-        font-size: 18px;
-        font-weight: bold;
-        color: #fff;
-    }
-    .bhabgs-seach{
-        margin-left: 3.5rem;
-        input{
-            background: none;
-            outline: none;
-            border-color: rgba(0,0,0,0);
-            color: #fff;
-            transition: all .3s;
-            height: 30px;
-            font-size: 14px;
-            line-height: 45px;
-            &:focus{
-                border-bottom-color: #fff;
-            }
-        }
-    }
-    .bhabgs-nav{
-        display: flex;
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        li{
-            list-style none;
-            margin-left: 1rem;
-            cursor: pointer;
-            transition: all .3s;
-            opacity: .8;
-            &:hover, &.active{
-                opacity: 1;
-            }
-        }
-    }
-}
-#bhabgs-body{
     flex: 1;
     display: flex;
-    overflow: hidden;
+    justify-content: flex-end;
+    li {
+      list-style: none;
+      margin-left: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      opacity: 0.8;
+      &:hover,
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
 }
-#bhabgs-sider{
-    width: 220px;
-    background: #fff;
-    .title, li{
-        display: block;
-        margin: 0;
-        padding: 10px 0 10px 30px;
-        color: #455a64;
-        font-size: 16px;
-        line-height: 24px;
-        -webkit-transition: all 0.3s;
-        transition: all 0.3s;
-    }
-    ul{
-        padding-left: 1rem;
-        margin-top: .5rem;
-    }
-    li{
-        list-style: none;
-        cursor pointer;
-        padding: .5rem 2rem;
-        &:hover, &.active{
-            color: #000;
-        }
-    }
-}
-
-#bhabgs-content{
+#bhabgs-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  .content__default {
     flex: 1;
-    overflow-y: auto; 
-    padding-left: 1.3rem; 
+    // margin-right 480px
+  }
+}
+#bhabgs-sider {
+  width: 260px;
+  background: #fff;
+  overflow-y: auto;
+  box-shadow: 2px 8px 12px $gray-3;
+  .title,
+  li {
+    display: block;
+    margin: 0;
+    padding: 10px 0 10px 30px;
+    color: #455a64;
+    font-size: 16px;
+    line-height: 24px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  ul {
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+  }
+  li {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.5rem 2rem;
+    &:hover,
+    &.active {
+      color: $blue-1
+    }
+  }
 }
 
+#bhabgs-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  background-color: $gray-2;
+  padding: 1rem 1.5rem;
+  position: relative;
+}
+h1{
+  margin: 1rem 0;
+}
+h2 {
+  margin-top: 3rem;
+}
+
+.bhabgs-code{
+
+}
+.bhabgs-md {
+  padding: 24px;
+  font-size: 14px;
+  margin-bottom 24px
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 8px 12px $gray-3;
+  p {
+    margin: 0;
+  }
+  table {
+    width: 100%;
+    display: table;
+  }
+  .bhabgs-m-title {
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .bhabgs-md-content{
+    padding .5rem 0
+  }
+  // 危险
+  &.b-danger{
+    background-color: $red-2;
+    border-left: .5rem solid $red-1;
+    .bhabgs-m-title{
+      color $red-1
+    }
+  }
+
+  // 警告
+  &.b-warning{
+    background-color: $orange-2;
+    border-left: .5rem solid $orange-1;
+    .bhabgs-m-title{
+      color $orange-1
+    }
+  }
+
+  // 主要
+  &.b-info{
+    background-color: $blue-7;
+    border-left: .5rem solid $blue-main;
+    .bhabgs-m-title{
+      color $blue-main
+    }
+  }
+
+  // 成功
+  &.b-success{
+    background-color: $green-2;
+    border-left: .5rem solid $green-1;
+    .bhabgs-m-title{
+      color $green-1
+    }
+  }
+}
+.language-js,
+.line-numbers-mode {
+  &.explain,
+  &.language-vue {
+    &::after {
+      display: none;
+    }
+    .language-js,
+    .language-vue {
+      background: #fff;
+      padding-left: 0;
+      code {
+        color: #ea5858;
+      }
+      .token.tag {
+        color: #3182bd;
+      }
+    }
+    .language-vue {
+      padding-left: 1rem;
+      background-color: #fafafa;
+    }
+  }
+  &.language-bash{
+    .language-bash{
+      padding-left: 1rem;
+    }
+  }
+  .line-numbers-wrapper {
+    display: none;
+  }
+}
 /*markdown*/

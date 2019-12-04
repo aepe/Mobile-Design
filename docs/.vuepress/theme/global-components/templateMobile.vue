@@ -1,31 +1,26 @@
 <!--
- * @Description: jianjie
- * @Version: 0.0.1
- * @Author: 王晓龙
- * @Date: 2019-11-13 13:47:19
+ * @abstract: JianJie
+ * @version: 0.0.1
+ * @Author: bhabgs
+ * @Date: 2019-11-28 09:17:12
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-27 16:12:57
+ * @LastEditTime: 2019-12-02 11:30:19
  -->
 <template>
-  <div class="demo-template">
-    <div class="view-example">
-      <component :is="name"></component>
-    </div>
+  <div class="bhabgs-template-pc">
     <div class="code-example">
-      <div class="code-content" v-show="isShow">
-        <slot></slot>
-      </div>
-      <div
-        class="code-btn"
-        @click="showCode()"
-      >{{ isShow ? '隐藏' : '显示' }}代码 {{ `<${ isShow ? '/' : ' ' }>` }}</div>
+      <slot></slot>
     </div>
+    <!-- <showMobileUi :name="name" /> -->
   </div>
 </template>
-
 <script>
+import showMobileUi from "../components/showMobileUi";
 export default {
   name: "demoTemplate",
+  components: {
+    showMobileUi
+  },
   props: {
     name: {
       required: true,
@@ -37,6 +32,9 @@ export default {
       isShow: false
     };
   },
+  created() {
+    this.$bus.cname = this.name;
+  },
   methods: {
     showCode() {
       this.isShow = !this.isShow;
@@ -44,18 +42,26 @@ export default {
   }
 };
 </script>
-
 <style lang="stylus">
-.demo-template {
+.bhabgs-template-pc {
   border: 1px solid #eee;
   border-radius: 5px;
   overflow: hidden;
   margin-top: 20px;
   background: #fff;
+  display: flex;
 
   .view-example {
     padding: 20px 40px;
     border-bottom: 1px solid #eee;
+  }
+
+  .code-example {
+    flex: 1;
+
+    .line-numbers-mode {
+      border-radius: 0;
+    }
   }
 
   .code-btn {
@@ -73,9 +79,5 @@ export default {
       }
     }
   }
-}
-
-.demo-template .code-example .code-content div[class*='language-'] pre, .demo-template .code-example .code-content div[class*='language-'] pre[class*='language-'] {
-  margin: 0;
 }
 </style>

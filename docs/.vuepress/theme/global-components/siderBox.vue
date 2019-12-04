@@ -4,7 +4,7 @@
  * @Author: bhabgs
  * @Date: 2019-11-27 11:25:51
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-27 16:11:47
+ * @LastEditTime: 2019-11-28 11:17:14
  -->
 <template>
   <div id="bhabgs-sider" v-if="menus.length > 0">
@@ -14,7 +14,9 @@
         v-for="i in menus"
         @click="goTo(i)"
         :class="[path + i[0] == $route.path ? 'active' : '']"
-      >{{ i[1] }}</li>
+      >
+        {{ i[1] }}
+      </li>
     </ul>
   </div>
 </template>
@@ -23,9 +25,7 @@ export default {
   data() {
     return {};
   },
-  created() {
-    console.log(this.menus);
-  },
+  created() {},
   computed: {
     path() {
       return "/" + this.$route.path.split("/")[1] + "/";

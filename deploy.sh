@@ -4,7 +4,7 @@
  # @Author: bhabgs
  # @Date: 2019-11-14 15:01:12
  # @LastEditors: bhabgs
- # @LastEditTime: 2019-11-27 09:29:42
+ # @LastEditTime: 2019-12-04 09:12:40
  ###
 #!/usr/bin/env sh
 
@@ -22,7 +22,7 @@ git add -A
 git commit -m '发布文档'
 
 # 如果发布到 https://<USERNAME>.github.io
- git push -f git@github.com:zx-js/Mobile-Design-Docs.git master
+git push -f git@github.com:zx-js/Mobile-Design-Docs.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:muou2125/blog.git master:gh-pages

@@ -4,19 +4,50 @@
  * @Author: bhabgs
  * @Date: 2019-11-26 16:53:25
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-27 15:47:05
+ * @LastEditTime: 2019-12-04 09:38:59
  -->
 
 # button 组件
 
-::: tip Mobile-Design
+::: b-info button 使用
 
-1.  Mobile
+```vue
+<ZMbutton>默认按钮</ZMbutton>
+```
 
 :::
 
-## demo
+## 代码演示
 
-<templates-demo name="Button-index">
+::: explain 基本用法
+
+<templateMobile name="Button-index">
+
 <<< @/docs/.vuepress/components/Button/index.vue
-</templates-demo>
+
+</templateMobile>
+
+:::
+
+## api
+
+::: explain 参数说明
+
+| 参数     | 描述 | 类型    | 是否必填 | 可选值                         | 默认值 |
+| :------- | :--- | :------ | :------- | :----------------------------- | :----- |
+| shape    | 形状 | string  | false    | square/round/plain             | 默认   |
+| disabled | 禁用 | Boolean | false    | true/false                     | false  |
+| type     | 类型 | string  | false    | primary/success/warning/danger | false  |
+| size     | 类型 | string  | false    | large/small/mini               | false  |
+
+:::
+
+---
+
+::: explain Event
+
+| 名称   | 描述     |
+| :----- | :------- |
+| @click | 点击事件 |
+
+:::

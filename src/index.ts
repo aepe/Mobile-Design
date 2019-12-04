@@ -4,9 +4,10 @@
  * @Author: bhabgs
  * @Date: 2019-11-26 12:15:44
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-27 09:16:46
+ * @LastEditTime: 2019-12-02 12:06:07
  */
 import compontents from "./compontent";
+import "./styles/base.less";
 import { VueConstructor } from "vue";
 const install = (Vue: VueConstructor) => {
   // 组件

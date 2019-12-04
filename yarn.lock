@@ -1015,6 +1015,13 @@
   dependencies:
     lodash.debounce "^4.0.8"
 
+"@vuepress/plugin-back-to-top@^1.0.0-rc.1":
+  version "1.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.0.0-rc.1.tgz#91fb693f3c7d7a9d8019842bb061ad756445e4ca"
+  integrity sha512-6XQfuNDLbfjOyxrVcgD09shPiFjc/YTkhAUMRrnkEfq1Uacaw9idr9BlCt+92Co3auIB15x7hsgyPr0es+PPNQ==
+  dependencies:
+    lodash.debounce "^4.0.8"
+
 "@vuepress/plugin-last-updated@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-last-updated/-/plugin-last-updated-1.2.0.tgz#7b34065b793848b0482a222b7a6f1b7df3668cdc"
@@ -1035,6 +1042,11 @@
   integrity sha512-C32b8sbGtDEX8I3SUUKS/w2rThiRFiKxmzNcJD996me7VY/4rgmZ8CxGtb6G9wByVoK0UdG1SOkrgOPdSCm80A==
   dependencies:
     "@vuepress/shared-utils" "^1.2.0"
+
+"@vuepress/plugin-search@^1.0.0-rc.1":
+  version "1.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.0.0-rc.1.tgz#819df40e70d8f20c31ecc1baef5a73ffc84ab0cb"
+  integrity sha512-SWKU5+4VKXgwb0JGt+Y4GNMGNQdTA/9QmUX4f6OmnXvQic1xnYJPPFz2Isns+D18bwkvs7Xl8ijUxQvhGul+EQ==
 
 "@vuepress/plugin-search@^1.2.0":
   version "1.2.0"

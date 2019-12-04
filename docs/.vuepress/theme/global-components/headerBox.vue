@@ -4,14 +4,15 @@
  * @Author: bhabgs
  * @Date: 2019-11-27 11:25:51
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-11-27 13:25:31
+ * @LastEditTime: 2019-11-28 11:50:41
  -->
 <template>
   <div id="bhabgs-header">
     <a class="bhabgs-title" href="http://">{{ this.title }}</a>
 
     <span class="bhabgs-seach">
-      <input type="text" placeholder="搜索文档..." />
+      <!-- <input type="text"  /> -->
+      <SearchBox />
     </span>
 
     <ul class="bhabgs-nav">
@@ -26,6 +27,7 @@
   </div>
 </template>
 <script>
+import SearchBox from "../components/SearchBox";
 export default {
   data() {
     return {};
@@ -50,6 +52,7 @@ export default {
     title() {
       return this.$site.title;
     }
-  }
+  },
+  components: { SearchBox }
 };
 </script>
