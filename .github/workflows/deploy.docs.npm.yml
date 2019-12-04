@@ -25,7 +25,7 @@ jobs:
       - name: 开始编译部署
         run: npm run deploy:send text=正在部署新的zx-mobile-design文档-请点击链接查看部署进度 title=CI部署DOCS通知 url=https://github.com/zx-js/zx-mobile-design/actions node .robot/robot.js
       - name: 编译源码
-        run: npm run build
+        run: npm run ui:build
       - name: 设置ssk
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
