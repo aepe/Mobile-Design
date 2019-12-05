@@ -4,7 +4,7 @@
  * @Author: bhabgs
  * @Date: 2019-11-07 09:48:14
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-04 13:30:56
+ * @LastEditTime: 2019-12-05 13:33:51
  */
 const themeConfig = {
   nav: [
@@ -24,6 +24,7 @@ const themeConfig = {
       ["", "vue 组件介绍"],
       ["Button/", "Button 按钮"],
       ["NavigationBar/", "NavigationBar 导航栏"],
+      ["Tabs/", "Tabs 标签页"],
       ["Call/", "Call 单元格"]
     ]
   },

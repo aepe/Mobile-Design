@@ -4,7 +4,7 @@
  * @Author: bhabgs
  * @Date: 2019-11-29 16:41:40
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-03 16:55:21
+ * @LastEditTime: 2019-12-05 12:04:54
  -->
 <template>
   <div class="bhabgs-showMobileUi">
@@ -49,9 +49,11 @@ export default {
     height: 736px;
     top: 102px;
     left: 23px;
-    background $gray-1
+    background: $gray-1;
     box-sizing: border-box;
-    padding: .5rem;
+    overflow-y: auto;
+    user-select: none;
+    // padding: .5rem;
   }
 }
 </style>

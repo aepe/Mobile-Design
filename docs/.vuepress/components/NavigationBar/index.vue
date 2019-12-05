@@ -1,27 +1,64 @@
-<!--
- * @abstract: JianJie
- * @version: 0.0.1
- * @Author: bhabgs
- * @Date: 2019-12-04 13:25:04
- * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-04 16:56:03
- -->
 <template>
   <div class="explain">
-    <span class="bhabgs-title">默认导航栏</span>
     <div class="bhabgs-block">
+      <span class="bhabgs-title">默认导航栏</span>
+      <ZMNavigationarBar title="默认导航栏" />
+    </div>
+
+    <div class="bhabgs-block">
+      <span class="bhabgs-title">暗色导航</span>
+      <ZMNavigationarBar theme="dark" title="暗色导航" />
+    </div>
+
+    <div class="bhabgs-block">
+      <span class="bhabgs-title">自定义背景色 文字颜色</span>
+      <ZMNavigationarBar backgroundColor="red" color="#fff" title="自定义背景色" />
+    </div>
+
+    <div class="bhabgs-block">
+      <span class="bhabgs-title">带返回键的导航</span>
+      <ZMNavigationarBar hasBack title="返回键" />
+    </div>
+
+    <div class="bhabgs-block">
+      <span class="bhabgs-title">带返回键的导航 并设置返回按键text</span>
+      <ZMNavigationarBar hasBack backText="返回" @back="back" title="返回键" />
+    </div>
+
+    <div class="bhabgs-block">
+      <span class="bhabgs-title">自定义按钮</span>
       <ZMNavigationarBar
-        :leftButtonList="leftButtonList"
-        :rightButtonList="leftButtonList"
         hasBack
         backText="返回"
-        title="哈哈哈"
         @back="back"
-      >
-        <!-- <div slot="left">haha</div> -->
-        <div slot="right">
-          <div class="nav-bar-button">确认</div>
-        </div>
+        :leftButtonList="leftButtonList"
+        title="自定义按钮"
+      />
+    </div>
+
+    <div class="bhabgs-block">
+      <span class="bhabgs-title">自定义左侧按钮</span>
+      <ZMNavigationarBar
+        @buttonclick="buttonClick"
+        :leftButtonList="leftButtonList"
+        title="自定义左侧按钮"
+      />
+    </div>
+
+    <div class="bhabgs-block">
+      <span class="bhabgs-title">自定义右侧按钮</span>
+      <ZMNavigationarBar
+        @buttonclick="buttonClick"
+        :rightButtonList="leftButtonList"
+        title="自定义右侧按钮"
+      />
+    </div>
+
+    <div class="bhabgs-block">
+      <span class="bhabgs-title">用户自定义左右两侧</span>
+      <ZMNavigationarBar title="用户自定义左右两侧">
+        <div slot="left">left</div>
+        <div slot="right">right</div>
       </ZMNavigationarBar>
     </div>
   </div>
@@ -53,7 +90,13 @@ export default {
     };
   },
   methods: {
-    back(e, i) {}
+    // 用户自定义按钮点击事件
+    buttonClick(item) {
+      alert(`您点击了${item.type}的第${item.key + 1} 个按钮`);
+    },
+    back(e) {
+      alert("您点击了返回按键");
+    }
   }
 };
 </script>

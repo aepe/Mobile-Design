@@ -4,10 +4,10 @@
  * @Author: bhabgs
  * @Date: 2019-11-28 09:17:12
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-02 11:30:19
+ * @LastEditTime: 2019-12-05 11:43:04
  -->
 <template>
-  <div class="bhabgs-template-pc">
+  <div class="bhabgs-template-mobile">
     <div class="code-example">
       <slot></slot>
     </div>
@@ -43,13 +43,14 @@ export default {
 };
 </script>
 <style lang="stylus">
-.bhabgs-template-pc {
+.bhabgs-template-mobile {
   border: 1px solid #eee;
   border-radius: 5px;
   overflow: hidden;
   margin-top: 20px;
   background: #fff;
   display: flex;
+  overflow-x: auto;
 
   .view-example {
     padding: 20px 40px;
