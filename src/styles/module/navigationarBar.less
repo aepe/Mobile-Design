@@ -1,0 +1,71 @@
+.z-MNavigationarBar {
+  height: 44px;
+  line-height: 44px;
+  position: relative;
+  box-sizing: border-box;
+  background: @white;
+  font-size: @font-size-lg;
+  font-weight: @font-weight-bold;
+  border-bottom: 0.5px solid @gray-3;
+  &.z-MNavigationarBar-dark {
+    background: @gradient-blue;
+    color: @white;
+  }
+  > div:nth-child(1),
+  > div:nth-child(3) {
+    top: 0;
+    bottom: 0;
+    color: @blue-main;
+    position: absolute;
+  }
+  > div:nth-child(1) {
+    display: flex;
+  }
+  > div:nth-child(3) {
+    right: 0;
+    display: flex;
+  }
+  .nav-bar-button {
+    position: relative;
+    transition: all @animation-duration-base;
+    &:before {
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+    }
+    &:active {
+      opacity: 0.6;
+    }
+
+    &.nav-bar-button-back {
+      color: @gray-6;
+    }
+  }
+  .nav-bar-left-box,
+  > div:nth-child(1) {
+    .nav-bar-button {
+      padding-right: @padding-base;
+    }
+    .nav-bar-button:first-child {
+      padding: 0 @padding-md;
+    }
+  }
+  .nav-bar-right-box,
+  > div:nth-child(3) {
+    .nav-bar-button {
+      padding-right: @padding-base;
+    }
+    .nav-bar-button:last-child {
+      padding: 0 @padding-md;
+    }
+  }
+
+  .nav-bar-title {
+    flex: 5;
+    margin: 0 23.47%;
+    text-align: center;
+  }
+}

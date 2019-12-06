@@ -60,7 +60,7 @@ export default class Button extends Vue {
       utils.assembleClass(classname, this.shape) +
       utils.assembleClass(classname, this.size) +
       hasType;
-    return newclassname.replace(/(\s*$)/g, "");
+    return utils.clearBlank(newclassname);
   }
 
   render() {

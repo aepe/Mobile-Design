@@ -4,10 +4,10 @@
  * @Author: bhabgs
  * @Date: 2019-11-26 16:53:25
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-04 09:38:59
+ * @LastEditTime: 2019-12-04 11:11:05
  -->
 
-# button 组件
+# Button 组件
 
 ::: b-info button 使用
 

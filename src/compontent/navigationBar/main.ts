@@ -4,14 +4,13 @@
  * @Author: bhabgs
  * @Date: 2019-12-02 11:47:26
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-02 11:48:08
+ * @LastEditTime: 2019-12-04 13:39:34
  */
 import navigationarBar from "./navigationarBar";
+import util from "../../utils";
 
-const ZNavigationarBar = {
-  version: "0.0.1",
-  name: "ZNavigationarBar",
-  install: navigationarBar
-};
-
-export default ZNavigationarBar;
+const ZMNavigationarBar = util.instantiation(
+  "ZMNavigationarBar",
+  navigationarBar
+);
+export default ZMNavigationarBar;

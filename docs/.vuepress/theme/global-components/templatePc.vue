@@ -4,10 +4,10 @@
  * @Author: bhabgs
  * @Date: 2019-11-28 09:17:12
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-03 09:14:08
+ * @LastEditTime: 2019-12-05 11:42:38
  -->
 <template>
-  <div class="bhabgs-template-mobile">
+  <div class="bhabgs-template-pc">
     <div class="view-example">
       <component :is="name"></component>
     </div>
@@ -42,7 +42,7 @@ export default {
 };
 </script>
 <style lang="stylus">
-.bhabgs-template-mobile {
+.bhabgs-template-pc {
   border: 1px solid #eee;
   border-radius: 5px;
   overflow: hidden;
