@@ -1,0 +1,32 @@
+@height: 44px;
+
+.z-mtabs {
+  .zMTabs-header {
+    height: @height;
+    line-height: @height;
+    background-color: @white;
+    &.z-mtabs-header-flex {
+      display: flex;
+      .z-mtabs-pane {
+        text-align: center;
+      }
+    }
+  }
+  .zMTabs-body {
+    padding: @padding-base;
+  }
+  .zMTabs-header-center {
+    text-align: center;
+  }
+  .z-mtabs-pane {
+    padding: 0 @padding-base;
+    display: inline-block;
+    transition: all @animation-duration-base;
+    &.z-mtabs-pane-active {
+      color: @blue-main;
+    }
+    &:active {
+      opacity: 0.6;
+    }
+  }
+}
