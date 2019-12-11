@@ -4,7 +4,7 @@
  * @Author: bhabgs
  * @Date: 2019-11-07 09:48:14
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-05 13:33:51
+ * @LastEditTime: 2019-12-11 11:36:11
  */
 const themeConfig = {
   nav: [
@@ -25,7 +25,8 @@ const themeConfig = {
       ["Button/", "Button 按钮"],
       ["NavigationBar/", "NavigationBar 导航栏"],
       ["Tabs/", "Tabs 标签页"],
-      ["Call/", "Call 单元格"]
+      ["Call/", "Call 单元格"],
+      ["Grid/", "Grid 网格布局"]
     ]
   },
   sidebarDepth: 2
