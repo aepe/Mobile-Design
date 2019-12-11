@@ -29,6 +29,13 @@ export default class ZMTabs extends Vue {
   @Provide()
   public active: string;
 
+  @Provide()
+  public position?: Event;
+
+  @Watch("position")
+  public atChangePosition() {
+    console.log(this.position);
+  }
   @Watch("onActive")
   @Emit("input")
   onActiveChange() {
@@ -51,10 +58,14 @@ export default class ZMTabs extends Vue {
     });
     let className: string =
       "zMTabs-header " + (this.center ? "zMTabs-header-" + "center " : " ");
-    return <div class={utils.clearBlank(className)}>{panes}</div>;
+    return (
+      <div class={utils.clearBlank(className)}>
+        {panes}
+        <div class="zMTabs-active-position"></div>
+      </div>
+    );
   }
   get className(): string {
-    const baseClass = "z-mtabs-";
     let classname = "z-mtabs ";
     return utils.clearBlank(classname);
   }

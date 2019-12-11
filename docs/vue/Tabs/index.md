@@ -4,7 +4,7 @@
  * @Author: bhabgs
  * @Date: 2019-12-05 13:32:35
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-05 15:54:19
+ * @LastEditTime: 2019-12-11 09:35:30
  -->
 # Tabs
 
@@ -13,6 +13,13 @@
 ```vue
 <ZMTabs>默认按钮</ZMTabs>
 ```
+:::
+
+
+
+::: b-danger Tabs 重做
+
+1. 目前tabs组件存在一定缺陷需要重做
 
 :::
 
@@ -25,5 +32,4 @@
 <<< @/docs/.vuepress/components/Tabs/index.vue
 
 </templateMobile>
-
 :::

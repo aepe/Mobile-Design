@@ -1,6 +1,6 @@
 {
   "name": "zx-mobile-design",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "vue 移动端ui框架",
   "main": "src/index.ts",
   "scripts": {
@@ -50,6 +50,7 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-typescript2": "^0.25.2",
     "typescript": "^3.7.2",
+    "typestyle": "^2.0.4",
     "vue": "^2.6.10",
     "vue-property-decorator": "^8.3.0",
     "vuepress": "^1.2.0"

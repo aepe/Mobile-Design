@@ -1,4 +1,11 @@
-import { Component, Vue, Inject, Prop, Watch } from "vue-property-decorator";
+import {
+  Component,
+  Vue,
+  Inject,
+  Prop,
+  Watch,
+  Ref
+} from "vue-property-decorator";
 
 @Component
 export default class ZMTabsPane extends Vue {
@@ -8,14 +15,19 @@ export default class ZMTabsPane extends Vue {
   @Inject()
   private active: string;
 
+  @Inject()
+  public position: Event;
+
   @Prop()
   private name!: string;
 
   @Prop()
   private label?: string;
 
+  @Ref() public _position: Event;
   public clickPane() {
     this.tabParent.active = this.name;
+    // this.position = this._position;
   }
   get getClass(): string {
     const baseClass = "z-mtabs-pane ";
@@ -26,10 +38,14 @@ export default class ZMTabsPane extends Vue {
         : "");
     return classname;
   }
+  mounted() {
+    if (this.name == (this.tabParent.active || this.active)) {
+      // this.position = this._position;
+    }
+  }
   render(): JSX.Element {
-    const slots = this.$slots.default;
     return (
-      <div class={this.getClass} onClick={this.clickPane}>
+      <div ref="_position" class={this.getClass} onClick={this.clickPane}>
         {this.label ? this.label : this.name}
       </div>
     );

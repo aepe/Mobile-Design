@@ -4,9 +4,10 @@
  * @Author: bhabgs
  * @Date: 2019-11-06 16:39:45
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-03 13:50:33
+ * @LastEditTime: 2019-12-11 09:42:34
  */
 const themeConfig = require("./config/themeConfig").themeConfig;
+const path = require("path");
 module.exports = {
   title: "zx-mobile-ui",
   port: 9992,
@@ -27,7 +28,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        // '@alias': __dirname + 'public'
+        "@alias": path.resolve(__dirname, "../../") + "/dist/"
       }
     }
   },

@@ -4,14 +4,19 @@
  * @Author: bhabgs
  * @Date: 2019-12-05 13:31:43
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-06 17:50:04
+ * @LastEditTime: 2019-12-11 10:31:42
  -->
 <template>
   <div class="explain">
+    <ZMGrid />
     <div class="bhabgs-block">
       <span class="bhabgs-title">Tabs</span>
       <ZMTabs v-model="activeName" flex>
-        <ZMTabsPane v-for="i in paneList" :name="i.name" :label="i.label"></ZMTabsPane>
+        <ZMTabsPane
+          v-for="i in paneList"
+          :name="i.name"
+          :label="i.label"
+        ></ZMTabsPane>
       </ZMTabs>
     </div>
 
@@ -19,7 +24,7 @@
       <span class="bhabgs-title">居中Tabs</span>
       <ZMTabs center v-model="activeName">
         <ZMTabsPane v-for="i in paneList" :name="i.name" :label="i.label">
-          <div class="jjj">{{i.label}}</div>
+          <ZMbutton type="warning">{{ i.label }}</ZMbutton>
         </ZMTabsPane>
       </ZMTabs>
     </div>

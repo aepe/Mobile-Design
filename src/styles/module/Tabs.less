@@ -1,10 +1,13 @@
 @height: 44px;
-
 .z-mtabs {
   .zMTabs-header {
     height: @height;
     line-height: @height;
     background-color: @white;
+    position: relative;
+    .zMTabs-active-position {
+      position: absolute;
+    }
     &.z-mtabs-header-flex {
       display: flex;
       .z-mtabs-pane {
