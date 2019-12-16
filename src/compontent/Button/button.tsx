@@ -1,9 +1,17 @@
-import { Component, Vue, Prop, Emit } from "vue-property-decorator";
+import { Component, Vue, Prop, Emit, Ref } from "vue-property-decorator";
+import Icon from "../Icon/icon";
+import { filterEmpty } from "../../utils";
 import utils from "../../utils";
-@Component
+import loadingSvg from "../../utils/loadings-svg/loading";
+const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
+const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
+
+@Component({
+  components: { Icon, loadingSvg }
+})
 export default class Button extends Vue {
   @Emit("click")
-  public btnClick(e) {
+  public btnClick(e: Event) {
     return e;
   }
   // 是否有icon
@@ -13,6 +21,13 @@ export default class Button extends Vue {
     }
   })
   private icon?: string;
+
+  // 是否loading
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  private loading?: boolean;
 
   // 按钮形状
   @Prop({
@@ -63,15 +78,85 @@ export default class Button extends Vue {
     return utils.clearBlank(newclassname);
   }
 
+  insertSpace(child, needInserted) {
+    const SPACE = needInserted ? " " : "";
+    if (typeof child.text === "string") {
+      let text = child.text.trim();
+      if (isTwoCNChar(text)) {
+        text = text.split("").join(SPACE);
+      }
+      return <span>{text}</span>;
+    }
+    return child;
+  }
+
+  isNeedInserted() {
+    const { icon, $slots } = this;
+    return $slots.default && $slots.default.length === 1 && !icon;
+  }
+
   render() {
-    const slots = this.$slots.default || [];
+    const {
+      icon,
+      btnClick,
+      disabled,
+      className,
+      $slots,
+      $attrs,
+      $listeners,
+      loading
+    } = this;
+    let buttonProps = {
+      attrs: {
+        ...$attrs,
+        disabled
+      },
+      class: className,
+      on: {
+        ...$listeners,
+        click: btnClick
+      }
+    };
+    let iconNode = this.icon ? <Icon type={icon} /> : null;
+    const children = filterEmpty($slots.default);
+    const kids = children.map(child =>
+      this.insertSpace(child, this.isNeedInserted())
+    );
+
+    if (loading) {
+      buttonProps.attrs.disabled = true;
+      iconNode = (
+        <Icon>
+          <loadingSvg />
+        </Icon>
+      );
+    }
+    // 如果按钮是链接类型
+    if ($attrs.href !== undefined) {
+      const linkButtonProps = {
+        attrs: Object.assign(
+          {
+            target: "view_window"
+          },
+          buttonProps.attrs
+        ),
+        class: className,
+        on: {
+          ...$listeners,
+          click: btnClick
+        }
+      };
+      return (
+        <a {...linkButtonProps}>
+          {iconNode}
+          {kids}
+        </a>
+      );
+    }
     return (
-      <button
-        onClick={this.btnClick}
-        disabled={this.disabled}
-        class={this.className}
-      >
-        {slots}
+      <button {...buttonProps}>
+        {iconNode}
+        {kids}
       </button>
     );
   }

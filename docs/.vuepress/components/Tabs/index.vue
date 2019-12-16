@@ -4,30 +4,23 @@
  * @Author: bhabgs
  * @Date: 2019-12-05 13:31:43
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-11 10:31:42
+ * @LastEditTime: 2019-12-16 17:40:09
  -->
 <template>
   <div class="explain">
-    <ZMGrid />
-    <div class="bhabgs-block">
-      <span class="bhabgs-title">Tabs</span>
-      <ZMTabs v-model="activeName" flex>
-        <ZMTabsPane
-          v-for="i in paneList"
-          :name="i.name"
-          :label="i.label"
-        ></ZMTabsPane>
-      </ZMTabs>
-    </div>
+    <ZMTabs v-model="activeName" type="hhhh">
+      <ZMTabsItem v-for="i in paneList" :name="i.name" :label="i.label">
+        {{ i.label }}
+      </ZMTabsItem>
+    </ZMTabs>
 
-    <div class="bhabgs-block">
-      <span class="bhabgs-title">居中Tabs</span>
-      <ZMTabs center v-model="activeName">
-        <ZMTabsPane v-for="i in paneList" :name="i.name" :label="i.label">
-          <ZMbutton type="warning">{{ i.label }}</ZMbutton>
-        </ZMTabsPane>
-      </ZMTabs>
-    </div>
+    <ZMTabs v-model="activeName" center>
+      <ZMTabsItem
+        v-for="i in paneList"
+        :name="i.name"
+        :label="i.label"
+      ></ZMTabsItem>
+    </ZMTabs>
   </div>
 </template>
 <script>
@@ -38,11 +31,11 @@ export default {
       paneList: [
         {
           name: "it",
-          label: "IT"
+          label: "标题切换"
         },
         {
           name: "manager",
-          label: "管理"
+          label: "标题切换"
         },
         {
           name: "wiki",

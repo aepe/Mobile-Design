@@ -2,64 +2,50 @@
   <div class="explain">
     <div class="bhabgs-block">
       <span class="bhabgs-title">默认导航栏</span>
-      <ZMNavigationarBar title="默认导航栏" />
+      <ZMNavBar title="默认导航栏" />
     </div>
 
     <div class="bhabgs-block">
       <span class="bhabgs-title">暗色导航</span>
-      <ZMNavigationarBar theme="dark" title="暗色导航" />
+      <ZMNavBar theme="dark" title="暗色导航" />
     </div>
 
     <div class="bhabgs-block">
       <span class="bhabgs-title">自定义背景色 文字颜色</span>
-      <ZMNavigationarBar backgroundColor="red" color="#fff" title="自定义背景色" />
+      <ZMNavBar backgroundColor="red" color="#fff" title="自定义背景色" />
     </div>
 
     <div class="bhabgs-block">
       <span class="bhabgs-title">带返回键的导航</span>
-      <ZMNavigationarBar hasBack title="返回键" />
+      <ZMNavBar hasBack title="返回键" />
     </div>
 
     <div class="bhabgs-block">
       <span class="bhabgs-title">带返回键的导航 并设置返回按键text</span>
-      <ZMNavigationarBar hasBack backText="返回" @back="back" title="返回键" />
+      <ZMNavBar hasBack backText="返回" @back="back" title="返回键" />
     </div>
 
     <div class="bhabgs-block">
       <span class="bhabgs-title">自定义按钮</span>
-      <ZMNavigationarBar
-        hasBack
-        backText="返回"
-        @back="back"
-        :leftButtonList="leftButtonList"
-        title="自定义按钮"
-      />
+      <ZMNavBar hasBack backText="返回" @back="back" :leftButtonList="leftButtonList" title="自定义按钮" />
     </div>
 
     <div class="bhabgs-block">
       <span class="bhabgs-title">自定义左侧按钮</span>
-      <ZMNavigationarBar
-        @buttonclick="buttonClick"
-        :leftButtonList="leftButtonList"
-        title="自定义左侧按钮"
-      />
+      <ZMNavBar @buttonclick="buttonClick" :leftButtonList="leftButtonList" title="自定义左侧按钮" />
     </div>
 
     <div class="bhabgs-block">
       <span class="bhabgs-title">自定义右侧按钮</span>
-      <ZMNavigationarBar
-        @buttonclick="buttonClick"
-        :rightButtonList="leftButtonList"
-        title="自定义右侧按钮"
-      />
+      <ZMNavBar @buttonclick="buttonClick" :rightButtonList="leftButtonList" title="自定义右侧按钮" />
     </div>
 
     <div class="bhabgs-block">
       <span class="bhabgs-title">用户自定义左右两侧</span>
-      <ZMNavigationarBar title="用户自定义左右两侧">
+      <ZMNavBar title="用户自定义左右两侧">
         <div slot="left">left</div>
         <div slot="right">right</div>
-      </ZMNavigationarBar>
+      </ZMNavBar>
     </div>
   </div>
 </template>

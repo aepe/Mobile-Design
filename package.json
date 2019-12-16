@@ -15,6 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/zx-js/Mobile-Design.git"
   },
+  "typings": "src/types/index.d.ts",
   "keywords": [
     "vue",
     "mobile",

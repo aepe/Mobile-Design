@@ -1,35 +1,36 @@
 @height: 44px;
-.z-mtabs {
-  .zMTabs-header {
-    height: @height;
-    line-height: @height;
-    background-color: @white;
-    position: relative;
-    .zMTabs-active-position {
-      position: absolute;
+.z-tabs-box {
+  display: flex;
+  flex-direction: column;
+
+  &.z-tabs-box-center {
+    .z-tabs-header {
+      justify-content: center;
     }
-    &.z-mtabs-header-flex {
-      display: flex;
-      .z-mtabs-pane {
-        text-align: center;
+  }
+  .z-tabs-header {
+    display: flex;
+    height: @height;
+    position: relative;
+    border-bottom: 1px solid @gray-3;
+    .z-tabs-header-item {
+      line-height: @height;
+      cursor: pointer;
+      padding: @padding-base @padding-base*2;
+      transition: color @animation-duration-base;
+      &.active {
+        color: @blue-main;
       }
     }
-  }
-  .zMTabs-body {
-    padding: @padding-base;
-  }
-  .zMTabs-header-center {
-    text-align: center;
-  }
-  .z-mtabs-pane {
-    padding: 0 @padding-base;
-    display: inline-block;
-    transition: all @animation-duration-base;
-    &.z-mtabs-pane-active {
-      color: @blue-main;
+    .z-tabs-active-line {
+      position: absolute;
+      height: 2px;
+      min-width: 10px;
+      bottom: -1px;
+      transition: all @animation-duration-base;
+      background: @blue-main;
     }
-    &:active {
-      opacity: 0.6;
-    }
+  }
+  .z-tabs-item-body {
   }
 }

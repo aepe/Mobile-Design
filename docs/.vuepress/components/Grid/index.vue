@@ -4,7 +4,7 @@
  * @Author: bhabgs
  * @Date: 2019-12-11 11:32:11
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-11 11:32:52
+ * @LastEditTime: 2019-12-11 18:57:06
  -->
 <template>
   <div class="explain">
@@ -17,9 +17,7 @@
 <script>
 export default {
   data() {
-    return {
-      paneList: []
-    };
+    return {};
   },
   methods: {}
 };
