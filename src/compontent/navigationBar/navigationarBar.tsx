@@ -1,7 +1,10 @@
 import { Vue, Component, Prop, Emit } from "vue-property-decorator";
+import Icon from "../Icon/icon";
 import utils from "../../utils";
 
-@Component
+@Component({
+  components: { Icon }
+})
 export default class ZNavigationarBar extends Vue {
   // title 文字
   @Prop({
@@ -127,7 +130,7 @@ export default class ZNavigationarBar extends Vue {
       <div class="nav-bar-left-box">
         {this.hasBack ? (
           <div onClick={this.back} class="nav-bar-button nav-bar-button-back">
-            {"< " + this.backText}
+            <Icon type="fanhui" /> {this.backText}
           </div>
         ) : (
           ""

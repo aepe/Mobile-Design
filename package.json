@@ -1,6 +1,6 @@
 {
   "name": "zx-mobile-design",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "vue 移动端ui框架",
   "main": "src/index.ts",
   "scripts": {
@@ -15,6 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/zx-js/Mobile-Design.git"
   },
+  "typings": "src/types/index.d.ts",
   "keywords": [
     "vue",
     "mobile",

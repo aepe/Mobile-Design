@@ -4,28 +4,62 @@
  * @Author: bhabgs
  * @Date: 2019-12-05 13:31:43
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-11 10:31:42
+ * @LastEditTime: 2019-12-17 14:27:48
  -->
 <template>
   <div class="explain">
-    <ZMGrid />
+    <span class="bhabgs-title">默认tabs</span>
+
     <div class="bhabgs-block">
-      <span class="bhabgs-title">Tabs</span>
-      <ZMTabs v-model="activeName" flex>
-        <ZMTabsPane
+      <ZMTabs v-model="activeName">
+        <ZMTabsItem v-for="i in paneList" :name="i.name" :label="i.label">
+          {{ i.label }}
+        </ZMTabsItem>
+      </ZMTabs>
+    </div>
+    <span class="bhabgs-title">居中tabs</span>
+
+    <div class="bhabgs-block">
+      <ZMTabs v-model="activeName2" center>
+        <ZMTabsItem
           v-for="i in paneList"
           :name="i.name"
           :label="i.label"
-        ></ZMTabsPane>
+        ></ZMTabsItem>
+      </ZMTabs>
+    </div>
+    <span class="bhabgs-title">自定义activecolor tabs</span>
+
+    <div class="bhabgs-block">
+      <ZMTabs v-model="activeName" activeColor="red">
+        <ZMTabsItem
+          v-for="i in paneList"
+          :name="i.name"
+          :label="i.label"
+        ></ZMTabsItem>
+      </ZMTabs>
+    </div>
+    <span class="bhabgs-title">带禁用的 tabs</span>
+
+    <div class="bhabgs-block">
+      <ZMTabs v-model="activeName">
+        <ZMTabsItem
+          v-for="i in paneList"
+          :name="i.name"
+          :label="i.label"
+          :disabled="i.disabled"
+        ></ZMTabsItem>
       </ZMTabs>
     </div>
 
+    <span class="bhabgs-title">card 类型 tabs</span>
     <div class="bhabgs-block">
-      <span class="bhabgs-title">居中Tabs</span>
-      <ZMTabs center v-model="activeName">
-        <ZMTabsPane v-for="i in paneList" :name="i.name" :label="i.label">
-          <ZMbutton type="warning">{{ i.label }}</ZMbutton>
-        </ZMTabsPane>
+      <ZMTabs v-model="activeName" type="card" center activeColor="red">
+        <ZMTabsItem
+          v-for="i in paneList"
+          :name="i.name"
+          :label="i.label"
+        ></ZMTabsItem>
       </ZMTabs>
     </div>
   </div>
@@ -35,18 +69,22 @@ export default {
   data() {
     return {
       activeName: "it",
+      activeName2: "it",
       paneList: [
         {
           name: "it",
-          label: "IT"
+          label: "标题切换",
+          disabled: false
         },
         {
           name: "manager",
-          label: "管理"
+          label: "标题切换",
+          disabled: true
         },
         {
           name: "wiki",
-          label: "百科"
+          label: "百科",
+          disabled: false
         }
       ]
     };

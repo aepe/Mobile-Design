@@ -4,10 +4,10 @@
  * @Author: bhabgs
  * @Date: 2019-11-05 16:22:07
  * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-06 10:45:05
+ * @LastEditTime: 2019-12-16 16:27:00
  */
-import Vue, { VNode } from "vue";
-
+import Vue, { VNode, VueConstructor } from "vue";
+import { TabsTs, TabsLabel, TabsStyle } from "./types";
 declare global {
   namespace JSX {
     // tslint:disable no-empty-interface
@@ -21,11 +21,11 @@ declare global {
       [propName: string]: any;
     }
   }
+  namespace Z {
+    interface Tabs extends TabsTs {}
+    interface Tabslabel extends TabsLabel {}
 
-  namespace Tabs {
-    interface TabsVue extends Vue {
-      active: string;
-    }
+    interface tabsStyle extends TabsStyle {}
   }
 }
 

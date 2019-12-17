@@ -1,35 +1,95 @@
 @height: 44px;
-.z-mtabs {
-  .zMTabs-header {
-    height: @height;
-    line-height: @height;
-    background-color: @white;
-    position: relative;
-    .zMTabs-active-position {
-      position: absolute;
+.z-tabs-box {
+  display: flex;
+  flex-direction: column;
+  background: @white;
+  &.z-tabs-box-center {
+    .z-tabs-header {
+      justify-content: center;
     }
-    &.z-mtabs-header-flex {
-      display: flex;
-      .z-mtabs-pane {
-        text-align: center;
+  }
+
+  &.z-tabs-box-type-card {
+    background-color: transparent;
+    .z-tabs-header {
+      border-bottom: none;
+      .z-tabs-header-item {
+        border: 1px solid @blue-main;
+        border-left: none;
+        line-height: 40px;
+        position: relative;
+        &:before {
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          transition: all @animation-duration-fast;
+        }
+        &:active {
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+        }
+        &:nth-child(1) {
+          border-left: 1px solid @blue-main;
+        }
+        &.active {
+          background: @blue-main;
+          color: @white;
+        }
       }
     }
+    .z-tabs-active-line {
+      display: none;
+    }
   }
-  .zMTabs-body {
+  .z-tabs-header {
+    display: flex;
+    height: @height;
+    position: relative;
+    border-bottom: 1px solid @gray-3;
+    .z-tabs-header-item {
+      line-height: @height;
+      cursor: pointer;
+      padding: @padding-base @padding-base*2;
+      transition: color @animation-duration-base;
+      &.active {
+        color: @blue-main;
+      }
+      &.z-tabs-header-item-disabled {
+        opacity: @disabled-opacity;
+      }
+    }
+    .z-tabs-active-line {
+      position: absolute;
+      height: 2px;
+      min-width: 10px;
+      bottom: -1px;
+      transition: all @animation-duration-base;
+      background: @blue-main;
+    }
+  }
+  .z-tabs-item-body {
     padding: @padding-base;
-  }
-  .zMTabs-header-center {
-    text-align: center;
-  }
-  .z-mtabs-pane {
-    padding: 0 @padding-base;
-    display: inline-block;
-    transition: all @animation-duration-base;
-    &.z-mtabs-pane-active {
-      color: @blue-main;
-    }
-    &:active {
-      opacity: 0.6;
+    position: relative;
+    .z-tabs-item-box {
+      padding: @padding-base*5 0;
     }
   }
+}
+.z-tabs-enter-active,
+.z-tabs-leave-active {
+  position: absolute;
+  transition: all @animation-duration-base;
+}
+.z-tabs-enter,
+.z-tabs-leave-active {
+  opacity: 0;
+  position: absolute;
+  transition: all @animation-duration-fast;
 }
