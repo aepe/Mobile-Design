@@ -2,10 +2,50 @@
 .z-tabs-box {
   display: flex;
   flex-direction: column;
-
+  background: @white;
   &.z-tabs-box-center {
     .z-tabs-header {
       justify-content: center;
+    }
+  }
+
+  &.z-tabs-box-type-card {
+    background-color: transparent;
+    .z-tabs-header {
+      border-bottom: none;
+      .z-tabs-header-item {
+        border: 1px solid @blue-main;
+        border-left: none;
+        line-height: 40px;
+        position: relative;
+        &:before {
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          transition: all @animation-duration-fast;
+        }
+        &:active {
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+        }
+        &:nth-child(1) {
+          border-left: 1px solid @blue-main;
+        }
+        &.active {
+          background: @blue-main;
+          color: @white;
+        }
+      }
+    }
+    .z-tabs-active-line {
+      display: none;
     }
   }
   .z-tabs-header {
@@ -21,6 +61,9 @@
       &.active {
         color: @blue-main;
       }
+      &.z-tabs-header-item-disabled {
+        opacity: @disabled-opacity;
+      }
     }
     .z-tabs-active-line {
       position: absolute;
@@ -32,5 +75,21 @@
     }
   }
   .z-tabs-item-body {
+    padding: @padding-base;
+    position: relative;
+    .z-tabs-item-box {
+      padding: @padding-base*5 0;
+    }
   }
+}
+.z-tabs-enter-active,
+.z-tabs-leave-active {
+  position: absolute;
+  transition: all @animation-duration-base;
+}
+.z-tabs-enter,
+.z-tabs-leave-active {
+  opacity: 0;
+  position: absolute;
+  transition: all @animation-duration-fast;
 }
