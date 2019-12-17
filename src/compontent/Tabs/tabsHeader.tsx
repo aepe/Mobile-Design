@@ -1,6 +1,4 @@
-import { Vue, Component, Prop, Watch } from "vue-property-decorator";
-import util from "../../utils";
-import { VueConstructor, VNode } from "vue";
+import { Vue, Component, Prop, Watch, Emit } from "vue-property-decorator";
 interface style {
   width: number;
   left: number | string;
@@ -15,6 +13,10 @@ export default class TabsHeader extends Vue {
   }
   @Prop()
   private value!: string;
+
+  @Prop()
+  private activeColor!: string;
+
   @Prop()
   private headerItems!: Z.Tabslabel[];
 
@@ -24,8 +26,19 @@ export default class TabsHeader extends Vue {
   };
   private created() {}
 
+  @Emit("clickItem")
   public clickItem(item: Z.Tabslabel, key: number, e: Event) {
-    util.globalBus.$emit("click-item", item);
+    if (item.disabled) {
+      return;
+    }
+    return item;
+  }
+
+  clickToEmit(item: Z.Tabslabel, key: number, e: Event) {
+    if (item.disabled) {
+      return;
+    }
+    this.clickItem(item, key, e);
   }
   computedStyle() {
     const { headerItems, $refs } = this;
@@ -43,16 +56,36 @@ export default class TabsHeader extends Vue {
     };
   }
   get items(): JSX.Element[] {
-    const { value, clickItem } = this;
+    const { value, clickToEmit, activeColor, type } = this;
+    let itemStyle, itemActiveStyle, color;
+    if (activeColor && type === "card") {
+      itemStyle = {
+        borderColor: activeColor
+      };
+      itemActiveStyle = {
+        backgroundColor: activeColor
+      };
+    } else if (activeColor) {
+      color = {
+        color: activeColor
+      };
+    }
     return this.headerItems.map((item: Z.Tabslabel, key) => {
       return (
         <div
+          disabled={item.disabled}
           class={[
             "z-tabs-header-item",
-            value && item.name === value ? "active" : ""
+            value && item.name === value ? "active" : "",
+            item.disabled ? "z-tabs-header-item-disabled" : ""
+          ]}
+          style={[
+            itemStyle,
+            value && item.name === value ? itemActiveStyle : "",
+            value && item.name === value ? color : ""
           ]}
           ref={`active${key}`}
-          onClick={clickItem.bind(event, item, key)}
+          onClick={clickToEmit.bind(event, item, key)}
         >
           {item.label || item.name}
         </div>
@@ -63,13 +96,13 @@ export default class TabsHeader extends Vue {
     this.computedStyle();
   }
   render(): JSX.Element {
-    const { style } = this;
+    const { style, activeColor } = this;
     return (
       <div class="z-tabs-header">
         {this.items}
         <div
           class="z-tabs-active-line"
-          style={`width: ${style.width}px; left:${style.left}`}
+          style={`width: ${style.width}px; left:${style.left}; background-color: ${activeColor}`}
         />
       </div>
     );

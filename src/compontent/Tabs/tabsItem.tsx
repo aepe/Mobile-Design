@@ -1,4 +1,4 @@
-import { Vue, Component, Prop, Inject } from "vue-property-decorator";
+import { Vue, Component, Prop } from "vue-property-decorator";
 import util from "../../utils";
 @Component
 export default class TabsItem extends Vue {
@@ -7,19 +7,33 @@ export default class TabsItem extends Vue {
     type: String
   })
   private name!: string;
-  @Inject()
-  private value?: string;
+
+  @Prop({
+    type: String
+  })
+  private activeName: string;
+
   private get classname(): string {
     const baseClass = "z-tabs-item-box ";
     return util.clearBlank(baseClass);
   }
 
   private get showType(): boolean {
+    if (this.activeName && this.activeName === this.name) {
+      return true;
+    }
+
     return false;
   }
   render(): JSX.Element {
     // v-show={showType}
     const { $slots, classname, showType } = this;
-    return <div class={classname}>{$slots.default}</div>;
+    return (
+      // <transition name="z-tabs">
+      <div v-show={showType} class={classname}>
+        {$slots.default}
+      </div>
+      // </transition>
+    );
   }
 }

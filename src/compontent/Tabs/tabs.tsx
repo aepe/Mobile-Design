@@ -7,11 +7,10 @@ import {
   Provide
 } from "vue-property-decorator";
 import TabsHeader from "./tabsHeader";
-import TabsItems from "./tabsItems";
+import TabsItem from "./tabsItem";
 import util from "../../utils";
-import { VNode } from "vue";
 @Component({
-  components: { TabsHeader, TabsItems }
+  components: { TabsHeader, TabsItem }
 })
 export default class Tabs extends Vue {
   @Model("input", { type: String, default: "123" })
@@ -28,9 +27,18 @@ export default class Tabs extends Vue {
     default: false
   })
   private center?: boolean;
+
+  @Prop({
+    type: String,
+    default: ""
+  })
+  private type?: string;
+
+  @Prop()
+  public activeColor?: string;
   private headerItems: object[] = [];
   private getItems() {
-    const { $slots, headerItems, value } = this;
+    const { $slots, headerItems } = this;
     const slots = $slots.default;
     for (let i of slots) {
       const hprops = Object.assign(i.data.attrs, i.componentOptions.propsData);
@@ -39,40 +47,59 @@ export default class Tabs extends Vue {
   }
 
   private get classname(): string {
-    console.log(this.center);
     const baseClass =
       "z-tabs-box " +
-      util.assembleClass("z-tabs-box", this.center ? "-center" : false);
+      util.assembleClass("z-tabs-box", this.center ? "-center" : false) +
+      util.assembleClass("z-tabs-box-type-", this.type);
     return util.clearBlank(baseClass);
   }
   created() {
     this.getItems();
-    util.globalBus.$on("click-item", (item: Z.Tabslabel) => {
-      this.changeVal(item.name);
-    });
   }
   render(): JSX.Element {
-    const { classname, $attrs, headerItems, value, $slots } = this;
+    const {
+      classname,
+      $attrs,
+      headerItems,
+      value,
+      $slots,
+      activeColor,
+      type,
+      changeVal
+    } = this;
     const headerProps = {
       attrs: {
         ...$attrs
       },
       props: {
         headerItems,
-        value
+        value,
+        activeColor,
+        type
       },
       class: "",
-      on: {}
-    };
-    const bodyProp = {
-      props: {
-        value
+      on: {
+        clickItem(e) {
+          changeVal(e.name);
+        }
       }
     };
     return (
       <div class={classname}>
         <TabsHeader {...headerProps} />
-        <div class="z-tabs-item-body">{$slots.default}</div>
+        <div class="z-tabs-item-body">
+          {$slots.default.map(item => {
+            const props = {
+              props: {
+                ...item.componentOptions.propsData,
+                activeName: value
+              }
+            };
+            return (
+              <TabsItem {...props}>{item.componentOptions.children}</TabsItem>
+            );
+          })}
+        </div>
       </div>
     );
   }
