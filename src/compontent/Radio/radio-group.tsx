@@ -32,7 +32,6 @@ export default class RadioGroup extends Vue {
     return util.clearBlank(classname);
   }
   private get radioButton(): JSX.Element[] {
-    console.log(this.$slots.default[0]);
     const { value, $slots, changeValue, activeColor } = this;
     return $slots.default.map((item, key) => {
       const props = {

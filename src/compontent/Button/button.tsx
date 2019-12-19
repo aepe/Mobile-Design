@@ -3,6 +3,7 @@ import Icon from "../Icon/icon";
 import { filterEmpty } from "../../utils";
 import utils from "../../utils";
 import loadingSvg from "../../utils/loadings-svg/loading";
+import { VNode } from "vue";
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 
@@ -43,7 +44,7 @@ export default class Button extends Vue {
       return "";
     }
   })
-  private type?: string;
+  private type!: string | undefined;
 
   // 按钮大小
   @Prop({
@@ -66,8 +67,11 @@ export default class Button extends Vue {
   // 拼接class 处理样式问题
   get className(): string {
     let classname: string = "z-mbutton-";
-    let hasType =
-      this.types.indexOf(this.type) == -1 ? "" : "z-mbutton-hastype";
+    let hasType = this.type
+      ? this.types.indexOf(this.type) == -1
+        ? ""
+        : "z-mbutton-hastype"
+      : "";
 
     let newclassname =
       this.BCN +
@@ -78,7 +82,7 @@ export default class Button extends Vue {
     return utils.clearBlank(newclassname);
   }
 
-  insertSpace(child, needInserted) {
+  insertSpace(child: VNode, needInserted: boolean) {
     const SPACE = needInserted ? " " : "";
     if (typeof child.text === "string") {
       let text = child.text.trim();

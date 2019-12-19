@@ -1,25 +1,69 @@
 .z-switch {
+  margin: 0;
+  padding: 0;
   position: relative;
   display: inline-block;
   box-sizing: content-box;
-  width: 2em;
-  height: 1em;
   font-size: 30px;
-  background-color: @white;
+  background-color: @gray-2;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 1em;
-  transition: background-color 0.3s;
-  > div {
+  transition: background-color @animation-duration-base;
+  &:disabled {
+    opacity: @disabled-opacity;
+  }
+  &.active {
+    background-color: @blue-main;
+  }
+  &:after {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-    width: 1em;
-    height: 1em;
+    transition: all @animation-duration-base;
     background-color: @white;
-    transform: translateX(1em);
-    border-radius: 100%;
     box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.1),
       0 3px 3px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+// large/small/mini/def
+@list: 1.5em, 1.2em, 0.8em, 1em;
+@sizes: -large, -small, -mini, -def; //
+@len: length(@list);
+
+.loop(@len);
+
+.loop(@counter) when (@counter > 0) {
+  @item_h: extract(@list, @counter);
+  @item_size: extract(@sizes, @counter);
+
+  @item_w: @item_h* 2;
+  .loop((@counter - 1));
+  .z-switch@{item_size} {
+    width: @item_w;
+    height: @item_h;
+    border-radius: @item_h;
+    &.active {
+      &:after {
+        width: @item_h;
+        left: @item_h;
+      }
+    }
+    &:active {
+      &:after {
+        width: @item_h + 0.2;
+      }
+      &.active {
+        &:after {
+          left: @item_h - 0.2;
+        }
+      }
+    }
+
+    &:after {
+      width: @item_h;
+      height: @item_h;
+      border-radius: @item_h;
+    }
   }
 }

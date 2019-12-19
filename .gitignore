@@ -6,5 +6,6 @@ dist
 .DS_Store
 */.DS_Store
 /vuepress/
+/app-docs/
 .vscode
 yarn-error.log
