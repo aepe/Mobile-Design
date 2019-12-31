@@ -1,4 +1,4 @@
-import { Component, Vue, Prop, Emit } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import utils from "../../utils";
 @Component
 export default class Call extends Vue {

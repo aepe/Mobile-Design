@@ -2,19 +2,19 @@ import { Component, Vue, Prop, Emit } from "vue-property-decorator";
 @Component
 export default class RadioButton extends Vue {
   @Prop()
-  private label: string;
+  private label!: string;
 
   @Prop({
     type: Boolean,
     default: false
   })
-  private disabled: boolean;
+  private disabled!: boolean;
   @Emit("change-radio-button")
   changeRadioButton() {
     return this.label;
   }
   @Prop()
-  private value: string;
+  private value!: string;
   private get classname(): string {
     const baseClass = "z-radio-label";
     return baseClass;

@@ -4,7 +4,7 @@ import util from "../../utils";
 @Component
 export default class ZSwitch extends Vue {
   @Model("input", { default: false, type: Boolean })
-  private value: boolean;
+  private value!: boolean;
 
   @Prop()
   private size?: string;

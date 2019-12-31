@@ -56,7 +56,7 @@ export default class ZNavigationarBar extends Vue {
       return [];
     }
   })
-  private rightButtonList?: any[];
+  private rightButtonList!: any[];
 
   // 左侧按钮列表
   @Prop({
@@ -65,7 +65,7 @@ export default class ZNavigationarBar extends Vue {
       return [];
     }
   })
-  private leftButtonList?: any[];
+  private leftButtonList!: any[];
 
   // 基础类名
   private baseClass: string = "z-MNavigationarBar ";

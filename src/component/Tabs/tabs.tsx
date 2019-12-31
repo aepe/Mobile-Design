@@ -39,9 +39,11 @@ export default class Tabs extends Vue {
   private headerItems: object[] = [];
   private getItems() {
     const { $slots, headerItems } = this;
-    const slots = $slots.default;
+    const slots = $slots.default || [];
     for (let i of slots) {
-      const hprops = Object.assign(i.data.attrs, i.componentOptions.propsData);
+      const data = i.data as any;
+      const componentOptions = i.componentOptions as any;
+      const hprops = Object.assign(data.attrs, componentOptions.propsData);
       headerItems.push(hprops);
     }
   }
@@ -67,6 +69,7 @@ export default class Tabs extends Vue {
       type,
       changeVal
     } = this;
+    const slots = $slots.default || [];
     const headerProps = {
       attrs: {
         ...$attrs
@@ -79,7 +82,7 @@ export default class Tabs extends Vue {
       },
       class: "",
       on: {
-        clickItem(e) {
+        clickItem(e: any) {
           changeVal(e.name);
         }
       }
@@ -88,16 +91,15 @@ export default class Tabs extends Vue {
       <div class={classname}>
         <TabsHeader {...headerProps} />
         <div class="z-tabs-item-body">
-          {$slots.default.map(item => {
+          {slots.map(item => {
+            const componentOptions = item.componentOptions as any;
             const props = {
               props: {
-                ...item.componentOptions.propsData,
+                ...componentOptions.propsData,
                 activeName: value
               }
             };
-            return (
-              <TabsItem {...props}>{item.componentOptions.children}</TabsItem>
-            );
+            return <TabsItem {...props}>{componentOptions.children}</TabsItem>;
           })}
         </div>
       </div>

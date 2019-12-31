@@ -57,7 +57,7 @@ export default class TabsHeader extends Vue {
   }
   get items(): JSX.Element[] {
     const { value, clickToEmit, activeColor, type } = this;
-    let itemStyle, itemActiveStyle, color;
+    let itemStyle: object, itemActiveStyle: object, color: object;
     if (activeColor && type === "card") {
       itemStyle = {
         borderColor: activeColor

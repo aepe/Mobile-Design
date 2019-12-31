@@ -1,9 +1,8 @@
-import { Component, Vue, Prop, Emit, Ref } from "vue-property-decorator";
+import { Component, Vue, Prop, Emit } from "vue-property-decorator";
 import Icon from "../Icon/icon";
 import { filterEmpty } from "../../utils";
 import utils from "../../utils";
 import loadingSvg from "../../utils/loadings-svg/loading";
-import { VNode } from "vue";
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 
@@ -82,7 +81,7 @@ export default class Button extends Vue {
     return utils.clearBlank(newclassname);
   }
 
-  insertSpace(child: VNode, needInserted: boolean) {
+  insertSpace(child: Vue.VNode, needInserted: boolean | undefined) {
     const SPACE = needInserted ? " " : "";
     if (typeof child.text === "string") {
       let text = child.text.trim();
@@ -94,7 +93,7 @@ export default class Button extends Vue {
     return child;
   }
 
-  isNeedInserted() {
+  isNeedInserted(): boolean | undefined {
     const { icon, $slots } = this;
     return $slots.default && $slots.default.length === 1 && !icon;
   }

@@ -7,21 +7,21 @@ import Radio from "./radio-item";
 })
 export default class RadioGroup extends Vue {
   @Model("input", { type: String })
-  private value: string;
+  private value!: string;
 
   @Emit("input")
-  private changeValue(e) {
+  private changeValue(e: string) {
     return e;
   }
 
   @Prop()
-  private activeColor: string;
+  private activeColor!: string;
 
   @Prop({
     type: Boolean,
     default: false
   })
-  private inline: boolean;
+  private inline!: boolean;
 
   created() {}
   private get classname(): string {
@@ -33,25 +33,27 @@ export default class RadioGroup extends Vue {
   }
   private get radioButton(): JSX.Element[] {
     const { value, $slots, changeValue, activeColor } = this;
-    return $slots.default.map((item, key) => {
+    const slots = $slots.default || [];
+    return slots.map((item, key) => {
+      const componentOptions = item.componentOptions as any;
       const props = {
         props: {
-          ...item.componentOptions.propsData,
+          ...componentOptions.propsData,
           value,
           activeColor
         },
         on: {
-          "change-radio-button"(e) {
+          "change-radio-button"(e: string) {
             changeValue(e);
           }
         }
       };
       let kids = null;
-      if (item.componentOptions.tag === "ZMRadioItem") {
-        kids = <Radio {...props}>{item.componentOptions.children}</Radio>;
+      if (componentOptions.tag === "ZMRadioItem") {
+        kids = <Radio {...props}>{componentOptions.children}</Radio>;
       } else {
         kids = (
-          <RadioButton {...props}>{item.componentOptions.children}</RadioButton>
+          <RadioButton {...props}>{componentOptions.children}</RadioButton>
         );
       }
       return kids;

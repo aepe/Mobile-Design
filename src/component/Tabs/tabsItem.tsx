@@ -9,9 +9,10 @@ export default class TabsItem extends Vue {
   private name!: string;
 
   @Prop({
-    type: String
+    type: String,
+    default: ""
   })
-  private activeName: string;
+  private activeName!: string;
 
   private get classname(): string {
     const baseClass = "z-tabs-item-box ";
