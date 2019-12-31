@@ -3,9 +3,10 @@
  * @version: 0.0.1
  * @Author: bhabgs
  * @Date: 2019-11-20 17:29:28
- * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-04 09:31:50
+ * @LastEditors  : bhabgs
+ * @LastEditTime : 2019-12-19 12:12:53
  */
+
 let optList = [];
 const outtypes = ["es", "iife", "umd"];
 const reset = format => {
