@@ -3,17 +3,17 @@
  * @version: 0.0.1
  * @Author: bhabgs
  * @Date: 2019-11-26 12:15:44
- * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-19 09:16:28
+ * @LastEditors  : bhabgs
+ * @LastEditTime : 2019-12-31 14:41:54
  */
-import compontents from "./compontent";
-
+import compontents from "./component";
+// const { version } = require("../package.json");
 import "./styles/base.less";
-import Vue, { VueConstructor } from "vue";
-const install: any = (Vue: VueConstructor) => {
+import { Vue } from "vue-property-decorator";
+const install: any = (Vue: Vue.VueConstructor) => {
   // 组件
   compontents.forEach(component =>
     Vue.component(component.name, component.install)
   );
 };
-export default { install, version: "1.0.1" };
+export default { install, version: "0.0.6" };
