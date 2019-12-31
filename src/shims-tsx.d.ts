@@ -3,15 +3,15 @@
  * @version:
  * @Author: bhabgs
  * @Date: 2019-11-05 16:22:07
- * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-16 16:27:00
+ * @LastEditors  : bhabgs
+ * @LastEditTime : 2019-12-19 14:25:29
  */
-import Vue, { VNode, VueConstructor } from "vue";
+import { Vue } from "vue-property-decorator";
 import { TabsTs, TabsLabel, TabsStyle } from "./types";
 declare global {
   namespace JSX {
     // tslint:disable no-empty-interface
-    interface Element extends VNode {}
+    interface Element extends Vue.VNode {}
     // tslint:disable no-empty-interface
     interface ElementClass extends Vue {}
     interface IntrinsicElements {

@@ -1,18 +1,18 @@
-import Vue, { VNode } from "vue";
+import { Vue } from "vue-property-decorator";
 
 /*
  * @abstract:""
  * @version:""
  * @Author: bhabgs
  * @Date: 2019-11-08 10:07:49
- * @LastEditors: bhabgs
- * @LastEditTime: 2019-12-16 14:33:49
+ * @LastEditors  : bhabgs
+ * @LastEditTime : 2019-12-20 09:27:58
  */
-export function isEmptyElement(c) {
+export function isEmptyElement(c: any) {
   return !(c.tag || (c.text && c.text.trim() !== ""));
 }
 
-export function filterEmpty(children = []) {
+export function filterEmpty(children: Vue.VNode[] | undefined = []) {
   return children.filter(c => !isEmptyElement(c));
 }
 export default {
@@ -65,7 +65,7 @@ export default {
     return "";
   },
   // 创建需要处理的组件
-  instantiation(name: string, install: VueConstructor, version?: string) {
+  instantiation(name: string, install: Vue.VueConstructor, version?: string) {
     return {
       version: version || "0.0.1",
       name: "ZM" + name,
@@ -77,7 +77,9 @@ export default {
     return className.replace(/(\s*$)/g, "");
   },
   // 多个同名具名插槽过滤 只取第一个
-  singleSlot(VNodes: Array<VNode> | undefined): Array<VNode> | undefined {
+  singleSlot(
+    VNodes: Array<Vue.VNode> | undefined
+  ): Array<Vue.VNode> | undefined {
     if (VNodes && VNodes.length) {
       return [VNodes[0]];
     } else {
